@@ -12,20 +12,19 @@ Features
 
 - Works with any standard TUIO tracker app or service as a remote multitouch input panel.
 http://www.tuio.org/ 
-
 Apps are currently available for: 
--- iOS (https://itunes.apple.com/us/app/tuiopad/id412446962)
--- Android (https://play.google.com/store/apps/details?id=tuioDroid.impl)
--- Many other platforms and environments (http://www.tuio.org/?software)
+  - iOS (https://itunes.apple.com/us/app/tuiopad/id412446962)
+  - Android (https://play.google.com/store/apps/details?id=tuioDroid.impl)
+  - Many other platforms and environments (http://www.tuio.org/?software)
 
 - Uses the native TouchInjection API for Windows 8 as a proxy for multitouch input hardware 
--- Provides integrated hosted Wi-Fi networking services using the native WlanHostedNetwork API for faster performance between devices or when a local shared network is unavailable 
--- Offers direct and indirect contact modes for both manipulation and/or presentation overlay 
--- Provides detailed calibration of touch inputs to compensate for differences in remote hardware input panels (i.e.: variations in smartphone bezels, digitizer boundaries, etc.) 
--- Allows targeting of primary or virtual display bounds for touch interaction across single or multiple screen resolutions and layouts 
--- Emulates the Windows key and hardware button events using the native Keyboard Input API with configurable touch patterns 
--- Uses updated TUIO and OSC protocol libraries optimized for .NET 4.5 and offers full diagnostic tracing of inbound message streams 
--- See the project wiki for complete options and usage information
+  - Provides integrated hosted Wi-Fi networking services using the native WlanHostedNetwork API for faster performance between devices or when a local shared network is unavailable 
+  - Offers direct and indirect contact modes for both manipulation and/or presentation overlay 
+  - Provides detailed calibration of touch inputs to compensate for differences in remote hardware input panels (i.e.: variations in smartphone bezels, digitizer boundaries, etc.) 
+  - Allows targeting of primary or virtual display bounds for touch interaction across single or multiple screen resolutions and layouts 
+  - Emulates the Windows key and hardware button events using the native Keyboard Input API with configurable touch patterns 
+  - Uses updated TUIO and OSC protocol libraries optimized for .NET 4.5 and offers full diagnostic tracing of inbound message streams 
+  - See the project wiki for complete options and usage information
 
 License
 --------------------
