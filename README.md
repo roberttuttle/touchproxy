@@ -12,11 +12,10 @@ Features
 
 - Works with any standard TUIO tracker app or service as a remote multitouch input panel.
 http://www.tuio.org/ 
-
-Apps are currently available for: 
--- iOS (https://itunes.apple.com/us/app/tuiopad/id412446962)
--- Android (https://play.google.com/store/apps/details?id=tuioDroid.impl)
--- Many other platforms and environments (http://www.tuio.org/?software)
+-- Apps are currently available for: 
+--- iOS (https://itunes.apple.com/us/app/tuiopad/id412446962)
+--- Android (https://play.google.com/store/apps/details?id=tuioDroid.impl)
+--- Many other platforms and environments (http://www.tuio.org/?software)
 
 - Uses the native TouchInjection API for Windows 8 as a proxy for multitouch input hardware 
 -- Provides integrated hosted Wi-Fi networking services using the native WlanHostedNetwork API for faster performance between devices or when a local shared network is unavailable 
