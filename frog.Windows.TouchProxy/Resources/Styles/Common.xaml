@@ -1,0 +1,198 @@
+﻿<ResourceDictionary 
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	xmlns:behaviors="clr-namespace:frog.Windows.TouchProxy.Behaviors">
+
+	<Style TargetType="{x:Type GroupBox}">
+		<Setter Property="Padding" Value="10,3,10,10" />
+		<Setter Property="BorderBrush" Value="#FFCCCCCC" />
+	</Style>
+	
+	<Style x:Key="HyperlinkTextBlockStyle" TargetType="{x:Type TextBlock}">
+		<Style.Triggers>
+			<Trigger Property="IsMouseOver" Value="True">
+				<Setter Property="Cursor" Value="Hand" />
+				<Setter Property="TextDecorations" Value="Underline" />
+				<Setter Property="Foreground" Value="#FF46BD00" />
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+
+	<Style x:Key="ToggleSwitchCheckBoxStyle" TargetType="{x:Type CheckBox}">
+		<Setter Property="FocusVisualStyle">
+			<Setter.Value>
+				<Style>
+					<Setter Property="Control.Template">
+						<Setter.Value>
+							<ControlTemplate>
+								<Rectangle Margin="0" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2" />
+							</ControlTemplate>
+						</Setter.Value>
+					</Setter>
+				</Style>
+			</Setter.Value>
+		</Setter>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type CheckBox}">
+					<Grid x:Name="templateRoot">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="Auto" />
+							<ColumnDefinition Width="Auto" />
+							<ColumnDefinition Width="*" />
+						</Grid.ColumnDefinitions>
+						<ContentPresenter x:Name="contentPresenter" Grid.Column="0" Margin="0,0,10,0" HorizontalAlignment="Left" VerticalAlignment="Center" RecognizesAccessKey="True" Focusable="False" SnapsToDevicePixels="True" />
+						<Grid x:Name="switch" Grid.Column="1" Width="28" Height="13" Margin="0,0,0,-2" Opacity="1">
+							<Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FFFFFFFF" BorderBrush="#FF707070" BorderThickness="1" Padding="1" SnapsToDevicePixels="True">
+								<Rectangle x:Name="curtain" Fill="#FF707070" SnapsToDevicePixels="True" />
+							</Border>
+							<Rectangle x:Name="knob" Width="9" Fill="#FF212121" HorizontalAlignment="Left" SnapsToDevicePixels="True" />
+						</Grid>
+						<TextBlock x:Name="label" Grid.Column="2" Text="Off" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0" Width="25" SnapsToDevicePixels="True" />
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter TargetName="switch" Property="Opacity" Value="0.25" />
+						</Trigger>
+						<Trigger Property="IsChecked" Value="False">
+							<Setter TargetName="knob" Property="HorizontalAlignment" Value="Left" />
+							<Setter TargetName="curtain" Property="Fill" Value="#FF707070" />
+							<Setter TargetName="label" Property="Text" Value="Off" />
+						</Trigger>
+						<Trigger Property="IsChecked" Value="True">
+							<Setter TargetName="knob" Property="HorizontalAlignment" Value="Right" />
+							<Setter TargetName="curtain" Property="Fill" Value="#FF46BD00" />
+							<Setter TargetName="label" Property="Text" Value="On" />
+						</Trigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition Property="IsMouseOver" Value="True" />
+								<Condition Property="IsChecked" Value="False" />
+							</MultiTrigger.Conditions>
+							<MultiTrigger.Setters>
+								<Setter TargetName="curtain" Property="Fill" Value="#FF909090" />
+							</MultiTrigger.Setters>
+						</MultiTrigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition Property="IsMouseOver" Value="True" />
+								<Condition Property="IsChecked" Value="True" />
+							</MultiTrigger.Conditions>
+							<MultiTrigger.Setters>
+								<Setter TargetName="curtain" Property="Fill" Value="#FF56CD11" />
+							</MultiTrigger.Setters>
+						</MultiTrigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition Property="IsPressed" Value="True" />
+								<Condition Property="IsChecked" Value="False" />
+							</MultiTrigger.Conditions>
+							<MultiTrigger.Setters>
+								<Setter TargetName="curtain" Property="Fill" Value="#FFB0B0B0" />
+							</MultiTrigger.Setters>
+						</MultiTrigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition Property="IsPressed" Value="True" />
+								<Condition Property="IsChecked" Value="True" />
+							</MultiTrigger.Conditions>
+							<MultiTrigger.Setters>
+								<Setter TargetName="curtain" Property="Fill" Value="#FF66DD22" />
+							</MultiTrigger.Setters>
+						</MultiTrigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<DrawingBrush x:Key="WindowsKeyIcon" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Brush="#FF707070" Geometry="F1 M 0,123.084L 0,202.378L 95.8268,215.805L 95.8268,123.481L 0,123.084 Z" />
+					<GeometryDrawing Brush="#FF707070" Geometry="F1 M 95.8268,20.4681L 0,34.6302L 0,113.025L 95.8268,112.628L 95.8268,20.4681 Z" />
+					<GeometryDrawing Brush="#FF707070" Geometry="F1 M 234.311,112.05L 234.311,0L 107.036,18.8112L 107.036,112.579L 234.311,112.05 Z" />
+					<GeometryDrawing Brush="#FF707070" Geometry="F1 M 107.036,217.378L 234.311,235.209L 234.311,124.058L 107.036,123.529L 107.036,217.378 Z" />
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+
+	<DrawingBrush x:Key="ClearIcon" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Brush="#FF000000" Geometry="F1 M 18.6667,0L 10.6667,8L 2.66669,0L 0,2.66675L 8,10.6667L 0,18.6667L 2.66669,21.3333L 10.6667,13.3333L 18.6667,21.3333L 21.3333,18.6667L 13.3333,10.6667L 21.3333,2.66675L 18.6667,0 Z" />
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+
+	<DrawingBrush x:Key="InfoIcon" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Geometry="M 8.5,0.499985C 12.9183,0.499985 16.5,4.08177 16.5,8.49998C 16.5,12.9183 12.9183,16.5 8.5,16.5C 4.08172,16.5 0.5,12.9183 0.5,8.49998C 0.5,4.08177 4.08175,0.499985 8.5,0.499985 Z ">
+						<GeometryDrawing.Pen>
+							<Pen LineJoin="Round" Brush="#FF000000" />
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+					<GeometryDrawing Brush="#FF000000" Geometry="F1 M 8.49377,5.0378C 8.31042,5.0378 8.15452,4.9753 8.02605,4.8503C 7.89758,4.7253 7.83334,4.56691 7.83334,4.37526C 7.83334,4.18221 7.89758,4.02217 8.02605,3.89503C 8.15452,3.76796 8.31042,3.70445 8.49377,3.70445C 8.68127,3.70445 8.84029,3.76796 8.97085,3.89503C 9.1014,4.02217 9.16668,4.18221 9.16668,4.37526C 9.16668,4.55861 9.1014,4.71486 8.97085,4.84401C 8.84029,4.97316 8.68127,5.0378 8.49377,5.0378 Z M 9.03335,13.4378L 7.96667,13.4378L 7.96667,6.7711L 9.03335,6.7711L 9.03335,13.4378 Z " />
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+
+	<DrawingBrush x:Key="ValidationErrorIcon" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Brush="#FFFF0000" Geometry="F1 M 70,-6.10352e-005L 1.28991e-005,120L 140,120L 70,-6.10352e-005 Z " />
+					<GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 77.9681,38.7084L 77.0081,84.7884L 64.5281,84.7884L 62.6081,38.7084L 77.9681,38.7084 Z M 70.8131,106.868C 68.1631,106.868 65.9731,106.116 64.2431,104.611C 62.5131,103.106 61.6481,101.283 61.6481,99.1433C 61.6481,96.9034 62.5206,95.0709 64.2656,93.6459C 66.0106,92.2209 68.1931,91.5084 70.8131,91.5084C 73.4731,91.5084 75.6506,92.2309 77.3456,93.6759C 79.0406,95.1208 79.8881,96.9434 79.8881,99.1433C 79.8881,101.373 79.0481,103.218 77.3681,104.678C 75.6881,106.138 73.5031,106.868 70.8131,106.868 Z " />
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+
+	<DrawingBrush x:Key="PasswordBoxRevealIcon" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Brush="#FF000000" Geometry="M 20.0625,9.94792C 27.8462,9.94792 34.1563,15.3205 34.1563,21.9479C 34.1563,28.5753 27.8462,33.9479 20.0625,33.9479C 12.2787,33.9479 5.96878,28.5753 5.96878,21.9479C 5.96878,15.3205 12.2787,9.94792 20.0625,9.94792 Z ">
+						<GeometryDrawing.Pen>
+							<Pen LineJoin="Round" Brush="#FF000000" />
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+					<GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 20.0314,13.5416C 28.8679,13.5416 36.0314,19.0843 36.0314,25.9217C 36.0314,32.7591 28.8679,38.3019 20.0314,38.3019C 11.195,38.3019 4.03159,32.7591 4.03159,25.9217C 4.03159,19.0843 11.1949,13.5416 20.0314,13.5416 Z ">
+						<GeometryDrawing.Pen>
+							<Pen LineJoin="Round" Brush="#FFFFFFFF" />
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+					<GeometryDrawing Brush="#FF000000" Geometry="F1 M 19.9477,20.8437C 22.7091,20.8437 24.9478,23.0823 24.9478,25.8437C 24.9478,28.6052 22.7091,30.8437 19.9477,30.8437C 17.1863,30.8437 14.9478,28.6052 14.9478,25.8437C 14.9478,23.0823 17.1863,20.8437 19.9477,20.8437 Z ">
+						<GeometryDrawing.Pen>
+							<Pen LineJoin="Round" Brush="#FF000000" />
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+
+	<ControlTemplate x:Key="textBoxValidationErrorTemplate">
+		<Grid>
+			<Grid.Resources>
+				<Style TargetType="{x:Type ToolTip}">
+					<Setter Property="Foreground" Value="#FFFFFFFF" />
+					<Setter Property="Background" Value="#FFFF0000" />
+					<Setter Property="BorderThickness" Value="0" />
+				</Style>
+			</Grid.Resources>
+			<Rectangle Fill="{StaticResource ValidationErrorIcon}" Stretch="Uniform" Width="18" Height="16" Margin="-60,0,1,0" ToolTip="{Binding Path=/ErrorContent}" HorizontalAlignment="Left" VerticalAlignment="Center" />
+			<Border BorderBrush="#FFFF0000" BorderThickness="1">
+				<AdornedElementPlaceholder Margin="-1" />
+			</Border>
+		</Grid>
+	</ControlTemplate>
+
+</ResourceDictionary>

@@ -5,14 +5,15 @@ Copyright (c) 2015 frog design inc. / Robert Tuttle <robert.tuttle@frogdesign.co
 
 A remote touch injection client for Windows 8 using standard TUIO+OSC protocols, variable input calibration, and integrated hosted Wi-Fi networking for devices.
 
-https://github.com/frog-opensource/touchproxy (frog-opensource)
+https://github.com/frog/touchproxy
 
 Features
 --------------------
 
 - Works with any standard TUIO tracker app or service as a remote multitouch input panel.
 http://www.tuio.org/ 
-Apps are currently available for: 
+
+- Apps are currently available for: 
   - iOS (https://itunes.apple.com/us/app/tuiopad/id412446962)
   - Android (https://play.google.com/store/apps/details?id=tuioDroid.impl)
   - Many other platforms and environments (http://www.tuio.org/?software)
@@ -29,7 +30,7 @@ Apps are currently available for:
 Overview
 --------------------
 
-![](https://github.com/frog-opensource/touchproxy/wiki/images/touchproxy-wiki-1.png)
+![](https://github.com/frog/touchproxy/wiki/images/touchproxy-wiki-1.png)
 
 1. Toggle TouchProxy service on/off (TUIO client / OSC receiver UDP socket listener) 
 2. Set TUIO client / OSC receiver UDP socket listener port value (3333 is standard TUIO port) 
