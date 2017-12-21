@@ -6,6 +6,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Threading;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Xml.Linq;
 
 using Microsoft.Win32;
@@ -249,13 +251,25 @@ namespace frog.Windows.TouchProxy
 								{
 									switch (key.Value)
 									{
+                                        case "IsEnabled":
+                                            bool isEnabled;
+                                            if (Boolean.TryParse(value.Value, out isEnabled))
+                                            {
+                                                CancellationTokenSource source = new CancellationTokenSource();
+                                                var t = Task.Run(async delegate
+                                                {
+                                                    await Task.Delay(TimeSpan.FromSeconds(0.1), source.Token);
+                                                    this.TouchInjectionService.IsEnabled = isEnabled;
+                                                });
+                                            }
+                                            break;
 										case "Port":
 											int port;
 											if (Int32.TryParse(value.Value, out port))
 											{
 												this.TouchInjectionService.Port = port;
 											}
-											break;
+                                            break;
 										case "SelectedScreenTarget":
 											ScreenTarget selectedScreenTarget;
 											if (Enum.TryParse(value.Value, true, out selectedScreenTarget))
@@ -357,6 +371,7 @@ namespace frog.Windows.TouchProxy
 				new XElement
 				(
 					"settings",
+                    new XElement("setting", new XAttribute("key", "IsEnabled"), new XAttribute("value", this.TouchInjectionService.IsEnabled)),
 					new XElement("setting", new XAttribute("key", "Port"), new XAttribute("value", this.TouchInjectionService.Port)),
 					new XElement("setting", new XAttribute("key", "SelectedScreenTarget"), new XAttribute("value", this.SelectedScreenTarget)),
 					new XElement("setting", new XAttribute("key", "IsContactEnabled"), new XAttribute("value", this.TouchInjectionService.IsContactEnabled)),
