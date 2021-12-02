@@ -1,7 +1,7 @@
 TouchProxy
 ====================
 
-Copyright (c) 2015 Robert Tuttle <robert.tuttle@frogdesign.com>
+Copyright (c) 2015 Robert Tuttle
 
 A remote touch injection client for Windows 8 using standard TUIO+OSC protocols, variable input calibration, and integrated hosted Wi-Fi networking for devices.
 
